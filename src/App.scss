@@ -6,13 +6,11 @@ $nes-dark-red: #f00918;
 $nes-red: #e4000f;
 $nes-grey: rgba(26, 23, 23, 0.596);
 
-i {
+Navbar {
   color: $navbar-green;
-  span {
-    font-family: $header-font;
-    font-weight: 600;
-    margin: 0 10px;
-  }
+  font-family: $header-font;
+  font-weight: 600;
+  margin: 0 10px;
 }
 
 .card {

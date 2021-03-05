@@ -9,6 +9,9 @@ import {
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "typeface-orbitron";
+import { FaGamepad, FaGlobeAmericas, FaPencilAlt } from "react-icons/fa";
+import { FiUsers } from "react-icons/fi";
+import { ImMobile } from "react-icons/im";
 
 class BaseHeader extends Component {
   render() {
@@ -16,22 +19,37 @@ class BaseHeader extends Component {
     // const toggle = () => setIsOpen(!isOpen);
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">All Your Base Games</NavbarBrand>
+        <Navbar color="dark" dark expand="md">
+          <NavbarBrand href="/">
+            <FaGamepad />
+            All Your Base Games
+          </NavbarBrand>
           {/* <NavbarToggler /> */}
           <Collapse navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink href="#">Home</NavLink>
+                <NavLink href="#">
+                  <FaGlobeAmericas />
+                  Home
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Our Team</NavLink>
+                <NavLink href="#">
+                  <FiUsers />
+                  Our Team
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Contact Us</NavLink>
+                <NavLink href="#">
+                  <ImMobile />
+                  Contact Us
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Blog</NavLink>
+                <NavLink href="#">
+                  <FaPencilAlt />
+                  Blog
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
