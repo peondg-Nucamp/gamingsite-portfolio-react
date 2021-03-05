@@ -1,0 +1,124 @@
+$header-font: "Orbitron";
+$navbar-green: #32a883;
+$link-color: rgb(221, 186, 29);
+$icon-color: rgb(241, 243, 207);
+$nes-dark-red: #f00918;
+$nes-red: #e4000f;
+$nes-grey: rgba(26, 23, 23, 0.596);
+
+i {
+  color: $navbar-green;
+  span {
+    font-family: $header-font;
+    font-weight: 600;
+    margin: 0 10px;
+  }
+}
+
+.card {
+  img {
+    width: auto;
+    height: 300px;
+  }
+}
+
+body {
+  color: $navbar-green;
+  font-family: $header-font;
+  h2 {
+    font-weight: 600;
+  }
+  p {
+    font-weight: 400;
+  }
+}
+
+.nav-item {
+  border-radius: 10px;
+  padding: 2px;
+  margin-right: 4px;
+}
+
+.nav-item:hover {
+  background-color: $icon-color;
+}
+
+.active {
+  background-color: $link-color;
+}
+
+#backgroundImage {
+  width: 100%;
+}
+
+#backgroundImageContainer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#socialIconSection {
+  color: $icon-color;
+  i {
+    color: $icon-color;
+  }
+}
+
+li {
+  a {
+    color: $link-color;
+  }
+}
+
+// .fill {
+//   overflow: hidden;
+//   background-size: cover;
+//   background-position: center;
+//   background-image: url("../img/background-image.jpg");
+// }
+
+.card-body {
+  h4 {
+    color: $nes-dark-red;
+  }
+  h5 {
+    color: $nes-red;
+  }
+}
+
+p.card-text {
+  color: $nes-grey;
+}
+
+.img-thumbnail {
+  background-color: $nes-grey;
+}
+
+span[data-toggle="modal"] {
+  color: $link-color;
+}
+
+span[data-toggle="modal"]:hover {
+  color: $icon-color;
+  cursor: pointer;
+}
+
+button {
+  margin-right: 10px;
+  i {
+    color: $icon-color;
+  }
+}
+
+hr {
+  border-top: 3px solid $nes-grey;
+}
+
+.user-comment {
+  background-color: white;
+  width: 100%;
+}
+
+.user-reply {
+  background-color: white;
+  width: 75%;
+}
