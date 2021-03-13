@@ -1,0 +1,81 @@
+.card img {
+  width: auto;
+  height: 300px;
+}
+
+body {
+  color: #32a883;
+  font-family: "Orbitron";
+}
+body h2 {
+  font-weight: 600;
+}
+body p {
+  font-weight: 400;
+}
+
+#backgroundImage {
+  width: 100%;
+}
+
+#backgroundImageContainer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+li a {
+  color: #ddba1d;
+}
+
+.fill {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  /* background-image: url("../img/background-image.jpg"); */
+}
+
+.card-body h4 {
+  color: #f00918;
+}
+
+.card-body h5 {
+  color: #e4000f;
+}
+
+p.card-text {
+  color: rgba(26, 23, 23, 0.596);
+}
+
+.img-thumbnail {
+  background-color: rgba(26, 23, 23, 0.596);
+}
+
+span[data-toggle="modal"] {
+  color: #ddba1d;
+}
+
+span[data-toggle="modal"]:hover {
+  color: #f1f3cf;
+  cursor: pointer;
+}
+
+button {
+  margin-right: 10px;
+}
+button i {
+  color: #f1f3cf;
+}
+
+hr {
+  border-top: 3px solid rgba(26, 23, 23, 0.596);
+}
+
+.user-comment {
+  background-color: white;
+  width: 100%;
+}
+
+.user-reply {
+  background-color: white;
+  width: 75%;
+}
