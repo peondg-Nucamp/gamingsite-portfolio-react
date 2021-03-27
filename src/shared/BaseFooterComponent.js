@@ -1,13 +1,5 @@
 import { Component } from "react";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-  FaFacebookF,
-  FaFacebookSquare,
-  FaFacebookMessenger,
-} from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaYoutube, FaFacebookF } from "react-icons/fa";
 
 class BaseFooter extends Component {
   render() {
@@ -31,25 +23,20 @@ class BaseFooter extends Component {
                 </li>
               </ul>
             </div>
-            <div
-              className="col-6 col-sm-5 offset-2 offset-sm-1"
-              id="socialIconSection"
-            >
+            <div className="col-6 col-sm-5 ml-auto" id="socialIconSection">
               <h5>Connect With Us</h5>
-              <div className="d-flex align-items-center">
-                <a className="btn btn-social-icon btn-facebook">
-                  <FaFacebookF />
-                </a>
-                <a className="btn btn-social-icon btn-twitter">
-                  <FaTwitter />
-                </a>
-                <a className="btn btn-social-icon btn-instagram">
-                  <FaInstagram />
-                </a>
-                <a className="btn btn-social-icon btn-google">
-                  <FaYoutube />
-                </a>
-              </div>
+              <button className="btn btn-social-icon btn-facebook">
+                <FaFacebookF />
+              </button>
+              <button className="btn btn-social-icon btn-twitter">
+                <FaTwitter />
+              </button>
+              <button className="btn btn-social-icon btn-instagram">
+                <FaInstagram />
+              </button>
+              <button className="btn btn-social-icon btn-google">
+                <FaYoutube />
+              </button>
             </div>
           </div>
         </div>

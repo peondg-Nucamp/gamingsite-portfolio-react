@@ -1,5 +1,3 @@
-import { render } from "@testing-library/react";
-import { Collapse } from "bootstrap";
 import { Component } from "react";
 import {
   Card,
@@ -80,6 +78,7 @@ class GameCard extends Component {
               gameplay similar to
               <span data-toggle="modal" data-target="#fireEmblemModal">
                 <a
+                  href="#"
                   data-toggle="tooltip"
                   data-placement="top"
                   title="See background info"
@@ -90,6 +89,7 @@ class GameCard extends Component {
               and
               <span data-toggle="modal" data-target="#shiningForceModal">
                 <a
+                  href="#"
                   data-toggle="tooltip"
                   data-placement="top"
                   title="See background info"
