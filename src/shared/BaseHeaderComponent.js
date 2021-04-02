@@ -3,10 +3,11 @@ import {
   Collapse,
   Navbar,
   NavbarBrand,
+  NavbarToggler,
   Nav,
   NavItem,
-  NavLink,
 } from "reactstrap";
+import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "typeface-orbitron";
 import { FaGamepad, FaGlobeAmericas, FaPencilAlt } from "react-icons/fa";
@@ -44,7 +45,7 @@ const headerNavs = [
 function HeaderNavItemComponent() {
   return headerNavs.map((headerNavItem) => (
     <NavItem key={headerNavItem.id}>
-      <NavLink href={headerNavItem.path}>
+      <NavLink className="nav-link p-2 m-1 text-center" to={headerNavItem.path}>
         {headerNavItem.icon} <span>{headerNavItem.text}</span>
       </NavLink>
     </NavItem>
@@ -52,17 +53,26 @@ function HeaderNavItemComponent() {
 }
 
 class BaseHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNavOpen: false,
+    };
+  }
+  toggle = () => {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen,
+    });
+  };
   render() {
-    // const [isOpen, setIsOpen] = useState(false);
-    // const toggle = () => setIsOpen(!isOpen);
     return (
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="dark" dark expand="md" sticky="top">
         <div className="container py-1">
           <NavbarBrand href="/">
             <FaGamepad /> <span>All Your Base Games</span>
           </NavbarBrand>
-          {/* <NavbarToggler /> */}
-          <Collapse navbar>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
             <Nav className="ml-auto" navbar>
               <HeaderNavItemComponent />
             </Nav>

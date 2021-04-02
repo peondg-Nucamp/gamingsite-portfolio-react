@@ -10,13 +10,11 @@ span {
   margin: 0 10px;
 }
 
-.nav-item {
+.nav-link {
   border-radius: 10px;
-  padding: 2px;
-  margin-right: 4px;
 }
 
-.nav-item:hover {
+.nav-link:hover {
   background-color: #f1f3cf;
 }
 
