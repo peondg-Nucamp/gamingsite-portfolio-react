@@ -10,8 +10,8 @@ import {
   ModalBody,
   Col,
   Row,
-  Container,
 } from "reactstrap";
+import { GAME_CARDS } from "../shared/gameCards";
 
 // HeaderSection - Functional Component
 function HeaderSection() {
@@ -46,16 +46,26 @@ function HeaderImageSection() {
 }
 
 // GamesSection - Functional Component
-function GamesSection() {
-  return (
-    <div className="row pb-4">
-      <div className="col">
-        <div className="card-deck">
-          <GameCard />
+class GamesSection extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gameCards: GAME_CARDS,
+    };
+  }
+  render() {
+    return (
+      <div className="row pb-4">
+        <div className="col">
+          <div className="card-deck">
+            {this.state.gameCards.map((gameCard) => (
+              <GameCard gameCard={gameCard} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 // GameCard - Class Component to render a single Game Card
@@ -65,68 +75,43 @@ class GameCard extends Component {
     this.state = {
       isModalOpen: false,
     };
-    this.toggleModal = this.toggleModal.bind(this);
   }
-  toggleModal() {
+  toggleModal = () => {
     this.setState({
       isModalOpen: !this.state.isModalOpen,
     });
-  }
+  };
   render() {
     return (
       <>
         <Card className="bg-secondary ml-xl-5 mr-xl-5">
           <CardBody>
             <CardImg
-              src="/images/games/village-protectors.png"
+              src={this.props.gameCard.image}
               className="card-img-top img-fluid mb-3 rounded mx-auto d-block"
-              alt="Village Protectors Screenshot"
+              alt={this.props.gameCard.name}
             />
             <CardTitle tag="h5" className="text-center">
-              Village Protectors
+              {this.props.gameCard.name}
             </CardTitle>
-            <CardText>
-              Village Protectors is an isometric style RPG-Strategy with
-              gameplay similar to
-              <span data-toggle="modal" data-target="#fireEmblemModal">
-                <a
-                  href="#"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="See background info"
-                >
-                  Fire Emblem
-                </a>
-              </span>
-              and
-              <span data-toggle="modal" data-target="#shiningForceModal">
-                <a
-                  href="#"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="See background info"
-                >
-                  Shining Force
-                </a>
-              </span>
-              .
-            </CardText>
+            <CardText>{this.props.gameCard.description}</CardText>
             <hr />
             <p
+              className="text-center"
               data-toggle="tooltip"
               data-placement="top"
               title="More Info Coming Soon"
             >
-              Coming March 1, 2021
+              Coming {this.props.gameCard.release_date}
             </p>
           </CardBody>
         </Card>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>Shining Force</ModalHeader>
+          <ModalHeader toggle={this.toggleModal}>
+            {this.props.gameCard.similar_games[0].name}
+          </ModalHeader>
           <ModalBody>
-            Shining Force and its sequels are series of fantasy turn-based
-            tactics role-playing video game. While beginning on Sega-based
-            consoles, later releases and remakes were made by other companies.
+            {this.props.gameCard.similar_games[0].description}
           </ModalBody>
         </Modal>
       </>
