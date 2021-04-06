@@ -31,7 +31,8 @@ li a {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  /* background-image: url("../img/background-image.jpg"); */
+  background-image: url("../images/background-image.jpg");
+  height: 400px;
 }
 
 .card-body h4 {

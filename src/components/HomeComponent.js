@@ -8,6 +8,9 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  Col,
+  Row,
+  Container,
 } from "reactstrap";
 
 // HeaderSection - Functional Component
@@ -30,6 +33,15 @@ function HeaderSection() {
         </p>
       </div>
     </div>
+  );
+}
+
+// HeaderImageSection - Functional Component
+function HeaderImageSection() {
+  return (
+    <Row>
+      <Col md="12" id="backgroundImageContainer" className="bg-dark fill" />
+    </Row>
   );
 }
 
@@ -129,6 +141,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container-fluid">
+        <HeaderImageSection />
         <HeaderSection />
         <GamesSection />
       </div>
