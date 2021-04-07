@@ -45,7 +45,7 @@ function HeaderImageSection() {
   );
 }
 
-// GamesSection - Functional Component
+// GamesSection - Class Component
 class GamesSection extends Component {
   constructor(props) {
     super(props);
@@ -68,8 +68,8 @@ class GamesSection extends Component {
   }
 }
 
-// GameCard - Class Component to render a single Game Card
-class GameCard extends Component {
+// Modal - Class Component to render a gameCard's Modal
+class gameModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,6 +83,22 @@ class GameCard extends Component {
   };
   render() {
     return (
+      <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+        <ModalHeader toggle={this.toggleModal}>
+          {this.props.gameCard.similar_games[0].name}
+        </ModalHeader>
+        <ModalBody>
+          {this.props.gameCard.similar_games[0].description}
+        </ModalBody>
+      </Modal>
+    );
+  }
+}
+
+// GameCard - Class Component to render a single Game Card
+class GameCard extends Component {
+  render() {
+    return (
       <>
         <Card className="bg-secondary ml-xl-5 mr-xl-5">
           <CardBody>
@@ -94,7 +110,30 @@ class GameCard extends Component {
             <CardTitle tag="h5" className="text-center">
               {this.props.gameCard.name}
             </CardTitle>
-            <CardText>{this.props.gameCard.description}</CardText>
+            <CardText>
+              {this.props.gameCard.description}
+              <span data-toggle="modal" data-target="#shiningForceModal">
+                {/* eslint-disable-next-line */}
+                <a
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="See background info"
+                >
+                  {this.props.gameCard.similar_games[0].name}
+                </a>
+              </span>{" "}
+              and{" "}
+              <span data-toggle="modal" data-target="#fireEmblemModal">
+                {/* eslint-disable-next-line */}
+                <a
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="See background info"
+                >
+                  {this.props.gameCard.similar_games[1].name}.
+                </a>
+              </span>
+            </CardText>
             <hr />
             <p
               className="text-center"
@@ -106,14 +145,6 @@ class GameCard extends Component {
             </p>
           </CardBody>
         </Card>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>
-            {this.props.gameCard.similar_games[0].name}
-          </ModalHeader>
-          <ModalBody>
-            {this.props.gameCard.similar_games[0].description}
-          </ModalBody>
-        </Modal>
       </>
     );
   }

@@ -4,7 +4,7 @@ export const GAME_CARDS = [
     name: "Village Protectors",
     image: "/images/games/village-protectors.png",
     description:
-      "Village Protectors is an isometric style RPG-Strategy with gameplay similar to Fire Emblem and Shining Force.",
+      "Village Protectors is an isometric style RPG-Strategy with gameplay similar to ",
     release_date: "March 1, 2021",
     similar_games: [
       {
@@ -28,7 +28,7 @@ export const GAME_CARDS = [
     name: "A Good Day For a Haunting",
     image: "./images/games/good-day-for-a-haunting.png",
     description:
-      "Check out our take on the classic 2-D platform game made famous by Castlevania and other classics.",
+      "Check out our take on the classic 2-D platform game made famous by ",
     release_date: "Jan. 12, 2021",
     similar_games: [
       {
@@ -38,6 +38,13 @@ export const GAME_CARDS = [
           "Castlevania is an action-adventure gothic horror video game series about vampire hunters created and developed by Konami.",
         sources: "Wikipedia",
       },
+      {
+        name: "Ghosts and Goblins",
+        image: "/images/games/CastlevaniaBloodlines.png",
+        description:
+          "Ghosts and Goblins is a rather difficult early action horror game starring King Arthur against a horde of creatures that never quite seem to stop coming.",
+        sources: "Wikipedia",
+      },
     ],
   },
   {
@@ -45,7 +52,7 @@ export const GAME_CARDS = [
     name: "Space Adventure",
     image: "/images/games/space-adventure.jpg",
     description:
-      "An adventure game that is very similar to 90's PC games, such as King's Quest and Space Quest .",
+      "An adventure game that is very similar to 90's PC games, such as ",
     release_date: "TBA",
     similar_games: [
       {
