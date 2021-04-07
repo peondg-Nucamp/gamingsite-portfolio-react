@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import {
   Card,
   CardImg,
@@ -8,8 +8,10 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  ModalFooter,
   Col,
   Row,
+  Button,
 } from "reactstrap";
 import { GAME_CARDS } from "../shared/gameCards";
 
@@ -59,7 +61,7 @@ class GamesSection extends Component {
         <div className="col">
           <div className="card-deck">
             {this.state.gameCards.map((gameCard) => (
-              <GameCard gameCard={gameCard} />
+              <GameCard key={gameCard.id} gameCard={gameCard} />
             ))}
           </div>
         </div>
@@ -68,38 +70,23 @@ class GamesSection extends Component {
   }
 }
 
-// Modal - Class Component to render a gameCard's Modal
-class gameModal extends Component {
+// GameCard - Class Component to render a single Game Card
+class GameCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isModalOpen: false,
-    };
+    this.state = { modalOpen: false };
   }
-  toggleModal = () => {
+  toggle = () => {
+    console.log("modalOpen before = " + this.state.modalOpen);
+    console.log("attempting to change modalopen prop");
     this.setState({
-      isModalOpen: !this.state.isModalOpen,
+      modalOpen: !this.state.modalOpen,
     });
+    console.log("modalOpen after = " + this.state.modalOpen);
   };
   render() {
     return (
-      <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-        <ModalHeader toggle={this.toggleModal}>
-          {this.props.gameCard.similar_games[0].name}
-        </ModalHeader>
-        <ModalBody>
-          {this.props.gameCard.similar_games[0].description}
-        </ModalBody>
-      </Modal>
-    );
-  }
-}
-
-// GameCard - Class Component to render a single Game Card
-class GameCard extends Component {
-  render() {
-    return (
-      <>
+      <React.Fragment>
         <Card className="bg-secondary ml-xl-5 mr-xl-5">
           <CardBody>
             <CardImg
@@ -112,31 +99,18 @@ class GameCard extends Component {
             </CardTitle>
             <CardText>
               {this.props.gameCard.description}
-              <span data-toggle="modal" data-target="#shiningForceModal">
-                {/* eslint-disable-next-line */}
-                <a
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="See background info"
-                >
-                  {this.props.gameCard.similar_games[0].name}
-                </a>
-              </span>{" "}
-              and{" "}
-              <span data-toggle="modal" data-target="#fireEmblemModal">
-                {/* eslint-disable-next-line */}
-                <a
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="See background info"
-                >
-                  {this.props.gameCard.similar_games[1].name}.
-                </a>
-              </span>
+              {this.props.gameCard.similar_games.map((game) => (
+                <GameButtonModal
+                  key={game.id}
+                  game={game}
+                  modalOpen={this.state.modalOpen}
+                  toggle={this.toggle}
+                />
+              ))}
             </CardText>
             <hr />
             <p
-              className="text-center"
+              className="text-center my-auto"
               data-toggle="tooltip"
               data-placement="top"
               title="More Info Coming Soon"
@@ -145,14 +119,54 @@ class GameCard extends Component {
             </p>
           </CardBody>
         </Card>
-      </>
+      </React.Fragment>
+    );
+  }
+}
+
+// GameModal - Class Component to render a button and modal for a single game
+class GameButtonModal extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Button color="link" onClick={this.props.toggle}>
+          {this.props.game.name}
+        </Button>
+        <Modal
+          id={this.props.game.id}
+          isOpen={this.props.modalOpen}
+          toggle={this.props.toggle}
+          tabIndex="-1"
+        >
+          <ModalHeader toggle={this.props.toggle}>
+            <p id={this.props.game.id} className="modal-title">
+              {this.props.game.name}
+            </p>
+          </ModalHeader>
+          <ModalBody>
+            <img
+              src={this.props.game.image}
+              alt={this.props.game.name}
+              className="d-block w-75 mx-auto mb-4"
+            />
+            <p>{this.props.game.description}</p>
+            <blockquote>|Sources ~ {this.props.game.sources}</blockquote>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="success" onClick={this.props.toggle}>
+              Close
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </React.Fragment>
     );
   }
 }
 
 // Main Home Component - Class component to render the following:
-// 1 - HeaderSection
-// 2 - GamesSection
+// 1 - HeaderImageSection
+// 2 - HeaderSection
+// 3 - GamesSection
 class Home extends Component {
   render() {
     return (

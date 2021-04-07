@@ -8,6 +8,7 @@ export const GAME_CARDS = [
     release_date: "March 1, 2021",
     similar_games: [
       {
+        id: "#shiningForce",
         name: "Shining Force",
         image: "/images/games/shining-force.jpg",
         description:
@@ -15,6 +16,7 @@ export const GAME_CARDS = [
         sources: "Wikipedia and Old School Game Vault",
       },
       {
+        id: "#fireEmblem",
         name: "Fire Emblem",
         image: "/images/games/awakening-noscale.jpg",
         description:
@@ -32,6 +34,7 @@ export const GAME_CARDS = [
     release_date: "Jan. 12, 2021",
     similar_games: [
       {
+        id: "#castlevania",
         name: "Castlevania",
         image: "/images/games/CastlevaniaBloodlines.png",
         description:
@@ -39,6 +42,7 @@ export const GAME_CARDS = [
         sources: "Wikipedia",
       },
       {
+        id: "ghostsAndGoblins",
         name: "Ghosts and Goblins",
         image: "/images/games/CastlevaniaBloodlines.png",
         description:
@@ -56,6 +60,7 @@ export const GAME_CARDS = [
     release_date: "TBA",
     similar_games: [
       {
+        id: "kingsQuest",
         name: "King's Quest",
         image: "/images/games/kq1.png",
         description:
@@ -63,6 +68,7 @@ export const GAME_CARDS = [
         sources: "Wikipedia and sierrawallpaper.com",
       },
       {
+        id: "spaceQuest",
         name: "Space Quest",
         image: "/images/games/sq1.png",
         description:

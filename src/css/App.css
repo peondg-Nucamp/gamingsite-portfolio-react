@@ -80,3 +80,7 @@ hr {
   background-color: white;
   width: 75%;
 }
+
+.modal-open {
+  overflow: scroll;
+}
