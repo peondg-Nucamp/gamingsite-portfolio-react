@@ -82,7 +82,7 @@ class GameCard extends Component {
               className="card-img-top img-fluid mb-3 rounded mx-auto d-block"
               alt={this.props.gameCard.name}
             />
-            <CardTitle tag="h5" className="text-center">
+            <CardTitle tag="h4" className="text-center">
               {this.props.gameCard.name}
             </CardTitle>
             <CardText>
