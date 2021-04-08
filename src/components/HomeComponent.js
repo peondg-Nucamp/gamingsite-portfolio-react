@@ -72,18 +72,6 @@ class GamesSection extends Component {
 
 // GameCard - Class Component to render a single Game Card
 class GameCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { modalOpen: false };
-  }
-  toggle = () => {
-    console.log("modalOpen before = " + this.state.modalOpen);
-    console.log("attempting to change modalopen prop");
-    this.setState({
-      modalOpen: !this.state.modalOpen,
-    });
-    console.log("modalOpen after = " + this.state.modalOpen);
-  };
   render() {
     return (
       <React.Fragment>
@@ -100,12 +88,7 @@ class GameCard extends Component {
             <CardText>
               {this.props.gameCard.description}
               {this.props.gameCard.similar_games.map((game) => (
-                <GameButtonModal
-                  key={game.id}
-                  game={game}
-                  modalOpen={this.state.modalOpen}
-                  toggle={this.toggle}
-                />
+                <GameButtonModal key={game.id} game={game} />
               ))}
             </CardText>
             <hr />
@@ -126,17 +109,28 @@ class GameCard extends Component {
 
 // GameModal - Class Component to render a button and modal for a single game
 class GameButtonModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { modalOpen: false };
+  }
+  toggle = () => {
+    console.log("modalOpen before = " + this.state.modalOpen);
+    console.log("attempting to change modalopen prop");
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+    });
+    console.log("modalOpen after = " + this.state.modalOpen);
+  };
   render() {
     return (
       <React.Fragment>
-        <Button color="link" onClick={this.props.toggle}>
+        <Button color="link" onClick={this.toggle}>
           {this.props.game.name}
         </Button>
         <Modal
           id={this.props.game.id}
-          isOpen={this.props.modalOpen}
-          toggle={this.props.toggle}
-          tabIndex="-1"
+          isOpen={this.state.modalOpen}
+          toggle={this.toggle}
         >
           <ModalHeader toggle={this.props.toggle}>
             <p id={this.props.game.id} className="modal-title">
@@ -150,10 +144,10 @@ class GameButtonModal extends Component {
               className="d-block w-75 mx-auto mb-4"
             />
             <p>{this.props.game.description}</p>
-            <blockquote>|Sources ~ {this.props.game.sources}</blockquote>
+            <blockquote>Sources ~ {this.props.game.sources}</blockquote>
           </ModalBody>
           <ModalFooter>
-            <Button color="success" onClick={this.props.toggle}>
+            <Button color="success" onClick={this.toggle}>
               Close
             </Button>
           </ModalFooter>

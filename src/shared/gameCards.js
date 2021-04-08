@@ -44,10 +44,10 @@ export const GAME_CARDS = [
       {
         id: "ghostsAndGoblins",
         name: "Ghosts and Goblins",
-        image: "/images/games/CastlevaniaBloodlines.png",
+        image: "/images/games/ghosts-and-goblins.jpg",
         description:
           "Ghosts and Goblins is a rather difficult early action horror game starring King Arthur against a horde of creatures that never quite seem to stop coming.",
-        sources: "Wikipedia",
+        sources: "mobygames.com",
       },
     ],
   },
