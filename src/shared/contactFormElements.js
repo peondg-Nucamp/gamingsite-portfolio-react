@@ -24,3 +24,9 @@ export const FEEDBACK_FORM_ELEMENT = {
   name: "Feedback",
   type: "textarea",
 };
+
+export const SUBSCRIBE_FORM_ELEMENT = {
+  id: "radioSubscribe",
+  name: "Subscribe",
+  type: "radio",
+};
