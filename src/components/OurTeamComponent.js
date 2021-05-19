@@ -23,7 +23,9 @@ const PersonCard = (props) => {
         <CardSubtitle className="my-2" tag="h5">
           {props.person.title}
         </CardSubtitle>
-        <CardText>{props.person.description}</CardText>
+        <CardText className="d-none d-lg-block">
+          {props.person.description}
+        </CardText>
       </CardBody>
     </Card>
   );
